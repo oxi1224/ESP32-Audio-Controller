@@ -1,0 +1,6 @@
+.git
+.vs
+out
+/js/node_modules
+/js/yarn.lock
+.env
