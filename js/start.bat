@@ -1,0 +1,1 @@
+node ./auto_spotify_verify.js

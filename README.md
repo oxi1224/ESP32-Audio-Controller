@@ -88,6 +88,12 @@ Replace address with your local IP address.
 - Upload the file to the ESP32
 - (If the pins dont match up, tweak them to suit your model)
 
+### [Node.JS](https://nodejs.org/en)
+I've also included a ``js`` directory in the repository, it contains a simple javascript file to automatically verify on PC startup.
+- Open CMD in the js directory and type ``npm i``
+- Once it's finished press ``win`` + ``r`` and type ``shell:startup`` then move the shortcut to the ``.bat`` file in there.
+- If you're doing this, also create a shortcut to the ``Server.exe`` file so the server starts first then the javascript script verifies it!
+
 ## Usage
 After doing everything in [setup](#setup), you can run the ``Server.exe`` file that should be in the output directory.
 If the file does not run, try to exclude it from Windows Defender as it sometimes tries to remove it.
