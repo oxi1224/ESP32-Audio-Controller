@@ -91,6 +91,7 @@ Replace address with your local IP address.
 
 ### [Node.JS](https://nodejs.org/en)
 I've also included a ``js`` directory in the repository, it contains a simple javascript file to automatically verify on PC startup.
+- Edit the ``auto_spotify_verify.js`` file and set the URL to your verification URL from [usage](#usage)
 - Open CMD in the js directory and type ``npm i``
 - Once it's finished press ``win`` + ``r`` and type ``shell:startup`` then move the shortcut to the ``.bat`` file in there.
 - If you're doing this, also create a shortcut to the ``Server.exe`` file so the server starts first then the javascript script verifies it!
