@@ -7,8 +7,9 @@
 4. [Connections](#connections)
 5. [Setup](#setup)
 6. [Usage](#usage)
-7. [License](#license)
-8. [Authors](#authors)
+7. [Reference Image](#reference)
+8. [License](#license)
+9. [Authors](#authors)
 
 ## Description
 ESP32 Windows Audio Controller uses a server running on the host PC to obtain data such as all running processes playing audio and the current track that is playing on spotify.
@@ -100,6 +101,10 @@ If the file does not run, try to exclude it from Windows Defender as it sometime
 You can then go to ``https://accounts.spotify.com/authorize?client_id=CLIENT_ID&response_type=code&redirect_uri=REDIRECT_URI&scope=user-read-playback-state%20user-read-currently-playing`` in your browser.
 Make sure to change the needed credentials in the URL.
 The ESP32 should now display the data on the LCD display.
+
+## Reference
+Reference image
+![img](https://cdn.discordapp.com/attachments/1168285487790837843/1197261338129477652/IMG_20240117_202846.jpg?ex=65ba9f83&is=65a82a83&hm=2b404078f7f381379dadbba6c9f52bd2891011ce4ead9c186859e1c0d1ae28df&)
 
 ## License
 [Attribution-NonCommercial 4.0 International License](LICENSE.md)
