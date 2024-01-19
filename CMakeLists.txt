@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(AudioServer)
 
-find_package(CURL CONFIG REQUIRED)
+find_package(CURL REQUIRED)    
 find_package(httplib CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
     
