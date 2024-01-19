@@ -2,6 +2,8 @@
 #include <Winsock2.h>
 
 #include <iostream>
+#include <fstream>
+#include <string>
 #include <ctime>
 
 #include <httplib.h>
@@ -12,15 +14,34 @@
 
 using namespace Util;
 
-const int PORT = 4001;
-const std::string clientId = "CLIENT ID";
-const std::string clientSecret = "SECRET";
-const std::string redirectUri = "http://YOUR-LOCAL-IP:PORT/callback";
-const std::string address = "YOUR-LOCAL-IP";
+std::map<std::string, std::string> ENV{};
+
+static void LoadEnv() {
+	std::ifstream env(".env");
+	if (!env.is_open()) {
+		log("Failed to open .env file", true);
+		return;
+	}
+	std::string line;
+	while (std::getline(env, line)) {
+		std::istringstream lineStream(line);
+		std::string key, value;
+		if (std::getline(lineStream, key, '=') && std::getline(lineStream, value)) {
+			key.erase(0, key.find_first_not_of(" \t\r\n"));
+			key.erase(key.find_last_not_of(" \t\r\n") + 1);
+			value.erase(0, value.find_first_not_of(" \t\r\n"));
+			value.erase(value.find_last_not_of(" \t\r\n") + 1);
+			value.erase(std::remove(value.begin(), value.end(), '\"'), value.end());
+			ENV[key] = value;
+		}
+	}
+	env.close();
+}
 
 int main() {
+	LoadEnv();
 	httplib::Server srv;
-	Spotify::Client spot = Spotify::Client(clientId, clientSecret, redirectUri);
+	Spotify::Client spot = Spotify::Client(ENV["CLIENT_ID"], ENV["CLIENT_SECRET"], ENV["REDIRECT_URI"]);
 	WindowsAudio::AudioClient audioClient;
 
 	srv.Get("/get-processes",
@@ -89,6 +110,6 @@ int main() {
 			res.set_content(msg, "text/plain");
 		}
 	);
-
-	srv.listen(address, PORT);
+	
+	srv.listen(ENV["ADDRESS"], std::stoi(ENV["PORT"]));
 }

@@ -72,8 +72,14 @@ Save the following credentials somewhere safe:
 - Redirect URI (put: http://your-address:port/callback)
 
 ### Server
-Replace clientId, clientSecret and redirectUri with the credentials from the spotify app.
-Replace address with your local IP address.
+#### **ONLY DO ONE**
+##### Using Release
+- Download `Source code (zip)` and `Release.zip` from the latest release at [releases](https://github.com/oxi1224/ESP32-Audio-Controller/releases)
+- Unpack the source code, and into that folder unpack `Release.zip`
+- Put `Server.exe` and `libcurl.dll` in the root folder of the source code (e.g `C:\users\user\desktop\ESP32-Audio-Controller\`)
+- Put the needed credentials into `.env.exmpl` (**ONLY MODIFY WHAT IS WITHIN QUOTES**)
+- (VERIFY_URL can be found at the [usage](#usage) section of the readme)
+- Rename `.env.exmpl` to `.env`
 
 ##### Compiling
 - Download [CMake](https://cmake.org/)
@@ -90,16 +96,16 @@ Replace address with your local IP address.
 - (If the pins dont match up, tweak them to suit your model)
 
 ### [Node.JS](https://nodejs.org/en)
-I've also included a ``js`` directory in the repository, it contains a simple javascript file to automatically verify on PC startup.
-- Edit the ``auto_spotify_verify.js`` file and set the URL to your verification URL from [usage](#usage)
-- Open CMD in the js directory and type ``npm i``
-- Once it's finished press ``win`` + ``r`` and type ``shell:startup`` then move the shortcut to the ``.bat`` file in there.
-- If you're doing this, also create a shortcut to the ``Server.exe`` file so the server starts first then the javascript script verifies it!
+I've also included a `js` directory in the repository, it contains a simple javascript file to automatically verify on PC startup.
+- Open CMD in the js directory and type `npm i`
+- Create a shortcut to the `.bat` file
+- Once it's finished press `win` + `r` and type `shell:startup` then move the shortcut to the `.bat` file in there.
+- If you're doing this, also create a shortcut to the `Server.exe` file so the server starts first then the javascript script verifies it!
 
 ## Usage
-After doing everything in [setup](#setup), you can run the ``Server.exe`` file that should be in the output directory.
+After doing everything in [setup](#setup), you can run the `Server.exe` file.
 If the file does not run, try to exclude it from Windows Defender as it sometimes tries to remove it.
-You can then go to ``https://accounts.spotify.com/authorize?client_id=CLIENT_ID&response_type=code&redirect_uri=REDIRECT_URI&scope=user-read-playback-state%20user-read-currently-playing`` in your browser.
+You can then go to `https://accounts.spotify.com/authorize?client_id=CLIENT_ID&response_type=code&redirect_uri=REDIRECT_URI&scope=user-read-playback-state%20user-read-currently-playing` in your browser.
 Make sure to change the needed credentials in the URL.
 The ESP32 should now display the data on the LCD display.
 
