@@ -111,7 +111,7 @@ The ESP32 should now display the data on the LCD display.
 
 ## Reference
 Reference image
-![img](https://cdn.discordapp.com/attachments/1168285487790837843/1197261338129477652/IMG_20240117_202846.jpg?ex=65ba9f83&is=65a82a83&hm=2b404078f7f381379dadbba6c9f52bd2891011ce4ead9c186859e1c0d1ae28df&)
+![img](https://github.com/oxi1224/images/blob/985567b9120c589f956313e65ead5c977e5825ad/IMG_20250301_150823.jpg?raw=true)
 
 ## License
 [Attribution-NonCommercial 4.0 International License](LICENSE.md)
